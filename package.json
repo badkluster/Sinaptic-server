@@ -1,6 +1,6 @@
 {
   "name": "sinaptic-backend",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Backend para la web www.sinaptic.com.ar",
   "main": "index.js",
   "author": "Jorge Emanuel Dominguez",
@@ -9,13 +9,14 @@
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.19.0",
     "connect-multiparty": "^2.2.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "global": "^4.4.0",
     "jwt-simple": "^0.5.6",
-    "moment": "^2.29.1",
-    "mongoose": "^5.13.2",
-    "nodemon": "^2.0.9"
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.0",
+    "mongoose-paginate": "^5.0.3",
+    "nodemon": "^1.19.2",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "nodemon index.js"

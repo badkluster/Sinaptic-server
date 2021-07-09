@@ -1,16 +1,20 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
-
 const { API_VERSION } = require("./config");
 
-//Load Routings..
+// Load routings
+const authRoutes = require("./routers/auth");
 const userRoutes = require("./routers/user");
+const menuRoutes = require("./routers/menu");
+const newsletterRoutes = require("./routers/newsletter");
+const postRoutes = require("./routers/post");
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-//Configure Header HTTP
+// Configure Header HTTP
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -22,7 +26,11 @@ app.use((req, res, next) => {
   next();
 });
 
-//router Basic
+// Router Basic
+app.use(`/api/${API_VERSION}`, authRoutes);
 app.use(`/api/${API_VERSION}`, userRoutes);
+app.use(`/api/${API_VERSION}`, menuRoutes);
+app.use(`/api/${API_VERSION}`, newsletterRoutes);
+app.use(`/api/${API_VERSION}`, postRoutes);
 
 module.exports = app;
